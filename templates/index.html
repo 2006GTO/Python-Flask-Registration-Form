@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .container{
+            background: red;
+            margin-top: 10%;
+        }
+        
+        .press{
+            position: relative;
+            top:10px;
+        }
+        form {
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/process" method="post">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name"class="form-control">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name"class="form-control">
+            <label for="email">Email:</label>
+            <input type="text" name="email"class="form-control">
+            <label for="password">Password:</label>
+            <input type="password" name="password"class="form-control">
+            <label for="password_confirm">Confirm Password:</label>
+            <input type="password" name="password_confirm"class="form-control">
+            <button type="submit" class="btn btn-default press">Submit</button>
+          </form>
+    </div>
+
+</body>
+</html>
